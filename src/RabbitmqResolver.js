@@ -1,6 +1,6 @@
-const EventEmitter = require('events').EventEmitter
+const EventEmitter = require('events').EventEmitter;
 const amqp = require('amqplib/callback_api');
-const exec = require('child_process').exec
+const exec = require('child_process').exec;
 
 class RabbitmqResolver extends EventEmitter {
   constructor(...channels) {
@@ -47,7 +47,6 @@ class RabbitmqResolver extends EventEmitter {
           ch.assertQueue(key, {durable: false});
           ch.consume(key, (msg) => {
             const message = JSON.parse(msg.content.toString());
-            if (channels[key] != null) channels[key].call(this, message);
             this.handleMessage(key, message);
           }, { noAck: true });
         });

@@ -2,3 +2,4 @@ node_modules
 npm-debug.log
 /scripts/config.py
 /scripts/__pycache__
+.idea

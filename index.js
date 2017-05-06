@@ -1,8 +1,7 @@
-var express = require('express')
-var app = express()
-var exec = require('child_process').exec
-const RabbitmqResolver = require('./src/RabbitmqResolver')
+const express = require('express');
+const app = express();
 
+const RabbitmqResolver = require('./src/RabbitmqResolver')
 mq = new RabbitmqResolver('USERS');
 
 app.get('/', (req, res) => {
